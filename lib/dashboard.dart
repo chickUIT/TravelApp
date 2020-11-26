@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'dart:developer';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:workoutapp/detailspage.dart';
-
-class DashboardPage extends StatefulWidget {
+import 'package:workoutapp/lang/VietNam.json';
+import 'package:workoutapp/Country.dart';
+import 'Service.dart';
+class DashboardPage extends StatefulWidget  {
   @override
   _DashboardPageState createState() => _DashboardPageState();
+
 }
 
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
+    log('me m');
+    Country _country = Service.getCountry();
     return Column(
       children: <Widget>[
         SizedBox(
@@ -63,7 +70,7 @@ class _DashboardPageState extends State<DashboardPage> {
           child: ListView(
             padding: EdgeInsets.all(0.0),
             children: <Widget>[
-              _buildListItem('assets/vietnam.jpg', 'Vietnam',
+              _buildListItem('assets/vietnam.jpg', 'VietNam',
                   'Land of the Ascending Dragon'),
               _buildListItem(
                   'assets/japan.jpg', 'Japan', 'Land of The Rising Sun'),
