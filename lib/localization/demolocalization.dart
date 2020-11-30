@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 class DemoLocalization {
   final Locale locale;
   DemoLocalization(this.locale);
-  String abc="123";
   static DemoLocalization of(BuildContext context) {
     return Localizations.of<DemoLocalization>(context, DemoLocalization);
   }

@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'dart:developer';
+import 'dart:convert';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:workoutapp/detailspage.dart';
-import 'package:workoutapp/lang/VietNam.json';
-import 'package:workoutapp/Country.dart';
-import 'Service.dart';
-class DashboardPage extends StatefulWidget  {
+import 'Destination.dart';
+//import 'package:workoutapp/Country.dart';
+//import 'Service.dart';
+
+class DashboardPage extends StatefulWidget {
   @override
   _DashboardPageState createState() => _DashboardPageState();
-
 }
 
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
-    log('me m');
-    Country _country = Service.getCountry();
+    log('dashboard');
+    load();
+    //Country _country = Service.getCountry();
     return Column(
       children: <Widget>[
         SizedBox(
@@ -81,6 +83,17 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
       ],
     );
+  }
+
+  Map<String, String> _localizedValues;
+  Future load() async {
+    String jsonStringValue =
+        await rootBundle.loadString('lib/lang/VietNam.json');
+    Map<String, dynamic> mapJson = json.decode(jsonStringValue);
+    _localizedValues =
+        mapJson.map((key, value) => MapEntry(key, value.toString()));
+    Destination des = Destination.fromJson(jsonStringValue);
+    log(des.regions[0].name);
   }
 
   _buildListItem(String imgPath, String countryName, String description) {
