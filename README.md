@@ -1,4 +1,4 @@
-# workoutapp
+# Travel app
 
 A new Flutter project.
 
