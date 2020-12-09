@@ -1,68 +1,40 @@
-import 'package:flutter/material.dart';
-// To parse this JSON data, do
-//
-//     final country = countryFromJson(jsonString);
+import 'dart:convert';
+import 'dart:developer';
 
+import 'Region.dart';
 
 class Country {
-    Country({
-        this.name,
-        this.img,
-        this.description,
-        this.region,
-    });
+  String name;
+  String img;
+  String description;
+  List<Region> regions;
 
-    String name;
-    String img;
-    String description;
-    List<Region> region;
+  Country(this.name, this.img, this.description, [this.regions]);
+
+  factory Country.fromJson(dynamic jsonData) {
+    final json = jsonDecode(jsonData);
+    if (json['region'] != null) {
+      var regionObjsJson = json['region'] as List;
+      List<Region> _regions = regionObjsJson
+          .map((regionJson) => Region.fromJson(regionJson))
+          .toList();
+      return Country(
+        json['name'] as String,
+        json['img'] as String,
+        json['description'] as String,
+        _regions,
+      );
+    } else {
+      return Country(
+        json['name'] as String,
+        json['img'] as String,
+        json['description'] as String,
+      );
+    }
+  }
+
+  @override
+  String toString() {
+    return '{ ${this.name}, ${this.img}, ${this.regions} }';
+  }
 }
-
-class Region {
-    Region({
-        this.name,
-        this.img,
-        this.desination,
-    });
-
-    String name;
-    String img;
-    List<Destination> desination;
-}
-
-class Destination {
-    Destination({
-        this.name,
-        this.img,
-        this.location,
-    });
-
-    String name;
-    String img;
-    String location;
-
-}
-
-final countryList = [
-  Country(
-    name: 'Viet Nam',
-    img: 'assets/vietnam.jpg',
-    description: 'gorgeous and friendly',
-    region:[
-      Region(
-    name: 'Tay Ninh',
-    img: 'xxxxxxx',
-    desination: [
-       Destination(
-    name: 'Nui ba Den',
-    img: 'xxxxx'
-  ),
-  Destination(
-    name: 'toa thanh',
-    img: 'xxxxx'
-  )
-    ],
-     )
-    ]
-  )
-];

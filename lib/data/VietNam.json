@@ -1,0 +1,39 @@
+{
+    "name": "Viet Nam",
+    "img": "assets/vietnam.jpg",
+    "description": "Land of the Ascending Dragon",
+    "region": [
+        {
+            "name": "Da Nang",
+            "img": "/abc",
+            "destination": [
+                {
+                    "name": "Da Nang",
+                    "img": "/abc",
+                    "lat" : 0,
+                    "lon" : 0
+                },
+                {
+                    "name": "Tay Ninh",
+                    "img": "/abc",
+                    "lat" : 0,
+                    "lon" : 0
+                }
+            ]
+        },
+        {
+            "name": "Tay Ninh",
+            "img": "/abc",
+            "destination": [
+                {
+                    "name": "Da Nang",
+                    "img": "/abc"
+                },
+                {
+                    "name": "Tay Ninh",
+                    "img": "/abc"
+                }
+            ]
+        }
+    ]
+}

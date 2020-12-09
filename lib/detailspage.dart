@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'Country.dart';
 
 class DetailsPage extends StatefulWidget {
-  final imgPath, title;
-
-  DetailsPage({this.imgPath, this.title});
+  final Country country;
+  DetailsPage(this.country);
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
@@ -23,7 +23,7 @@ class _DetailsPageState extends State<DetailsPage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 image: DecorationImage(
-              image: AssetImage(widget.imgPath),
+              image: AssetImage(widget.country.img),
               fit: BoxFit.cover,
             )),
           ),
@@ -52,7 +52,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ),
                 Text(
-                  widget.title.toString().toUpperCase(),
+                  widget.country.name.toString().toUpperCase(),
                   style: GoogleFonts.montserrat(
                       fontSize: 16.0,
                       fontWeight: FontWeight.w300,
@@ -76,7 +76,7 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ),
           Positioned(
-            top: 100.0,
+            top: 120.0,
             child: Center(
               child: Column(
                 children: <Widget>[
@@ -111,8 +111,8 @@ class _DetailsPageState extends State<DetailsPage> {
                       Padding(
                         padding: EdgeInsets.all(0.0),
                         child: Container(
-                          height: 200.0,
-                          width: 350.0,
+                          height: 220.0,
+                          width: 370.0,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             image: DecorationImage(
@@ -170,7 +170,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20.0),
+                  SizedBox(height: 25.0),
                   Container(
                     width: MediaQuery.of(context).size.width - 15.0,
                     child: Row(
@@ -188,10 +188,10 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 15.0,
+                    height: 20.0,
                   ),
                   Container(
-                    height: 200.0,
+                    height: 220.0,
                     width: MediaQuery.of(context).size.width,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
@@ -219,8 +219,8 @@ class _DetailsPageState extends State<DetailsPage> {
         padding: EdgeInsets.all(10.0),
         child: Stack(children: [
           Container(
-              height: 175.0,
-              width: 150.0,
+              height: 200.0,
+              width: 160.0,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(7.0),
                   image: DecorationImage(
@@ -244,7 +244,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     size: 14.0,
                   )))),
           Positioned(
-              top: 125.0,
+              top: 150.0,
               left: 15.0,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'dart:developer';
-import 'dart:convert';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:workoutapp/Country.dart';
 import 'package:workoutapp/detailspage.dart';
-import 'Destination.dart';
-import 'package:workoutapp/ListItem.dart';
-//import 'package:workoutapp/Country.dart';
-//import 'Service.dart';
+import 'Country.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -17,78 +13,106 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  String jsonStringVI;
+  String jsonStringJP;
+  String jsonStringAU;
+
   @override
-  Widget build(BuildContext context) {
-    
-    //Country _country = Service.getCountry();
-    return Column(
-      children: <Widget>[
-        SizedBox(
-          height: 20.0,
-        ),
-        Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                width: 40.0,
-                height: 40.0,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7.0),
-                    color: Color(0xFFFD4F99)),
-                child: Center(
-                  child: Icon(
-                    Icons.filter_list,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Text(
-                "HOME",
-                style: GoogleFonts.montserrat(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w300,
-                  textStyle: TextStyle(color: Colors.white),
-                ),
-              ),
-              Container(
-                width: 40.0,
-                height: 40.0,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7.0),
-                    color: Color(0xFFF353535)),
-                child: Center(
-                  child: Icon(
-                    Icons.bookmark_border,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          height: MediaQuery.of(context).size.height - 150.0,
-          child: ListView.builder(
-            padding: EdgeInsets.all(0.0),
-            itemCount: countryList.length,
-            itemBuilder: (ctx,i)=>ListItem(i),
-            // children: <Widget>[
-            //   _buildListItem('assets/vietnam.jpg', 'VietNam',
-            //       'Land of the Ascending Dragon'),
-            //   _buildListItem(
-            //       'assets/japan.jpg', 'Japan', 'Land of The Rising Sun'),
-            //   _buildListItem(
-            //       'assets/australia.jpg', 'Australia', 'Land of The Kangaroo'),
-            // ],
-          ),
-        ),
-      ],
-    );
+  void initState() {
+    super.initState();
+    load().then((data) {
+      setState(() {
+        this.jsonStringVI = data;
+      });
+    });
   }
 
-  _buildListItem(String imgPath, String countryName, String description) {
+  @override
+  Widget build(BuildContext context) {
+    //Country _country = Service.getCountry();
+    if (jsonStringVI == null) {
+      log('Dashboard: Loading data');
+      return Center(
+        child: Text(
+          "PLEASE WAIT",
+          style: GoogleFonts.montserrat(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w300,
+            textStyle: TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    } else {
+      log('Dashboard: Render');
+      return Column(
+        children: <Widget>[
+          SizedBox(
+            height: 20.0,
+          ),
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  width: 40.0,
+                  height: 40.0,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7.0),
+                      color: Color(0xFFFD4F99)),
+                  child: Center(
+                    child: Icon(
+                      Icons.filter_list,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Text(
+                  "HOME",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w300,
+                    textStyle: TextStyle(color: Colors.white),
+                  ),
+                ),
+                Container(
+                  width: 40.0,
+                  height: 40.0,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7.0),
+                      color: Color(0xFFF353535)),
+                  child: Center(
+                    child: Icon(
+                      Icons.bookmark_border,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height - 150.0,
+            child: ListView(
+              padding: EdgeInsets.all(0.0),
+              children: <Widget>[
+                _buildListItem(jsonStringVI),
+              ],
+            ),
+          ),
+        ],
+      );
+    }
+  }
+
+  Future load() async {
+    jsonStringVI = await rootBundle.loadString('lib/data/VietNam.json');
+    return jsonStringVI;
+    // jsonStringJP = await rootBundle.loadString('lib/lang/VietNam.json')
+  }
+
+  _buildListItem(String jsonString) {
+    Country country = Country.fromJson(jsonString);
     return Padding(
         padding: EdgeInsets.all(5.0),
         child: Stack(
@@ -99,7 +123,7 @@ class _DashboardPageState extends State<DashboardPage> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   image: DecorationImage(
-                      image: AssetImage(imgPath),
+                      image: AssetImage(country.img),
                       fit: BoxFit.cover,
                       colorFilter: ColorFilter.mode(
                           Colors.black.withOpacity(0.5), BlendMode.darken))),
@@ -111,7 +135,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      countryName,
+                      country.name,
                       style: GoogleFonts.montserrat(
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
@@ -121,7 +145,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       height: 5.0,
                     ),
                     Text(
-                      description,
+                      country.description,
                       style: GoogleFonts.montserrat(
                           fontSize: 20.0,
                           textStyle: TextStyle(color: Colors.white)),
@@ -132,8 +156,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     InkWell(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => DetailsPage(
-                                imgPath: imgPath, title: countryName)));
+                            builder: (context) => DetailsPage(country)));
                       },
                       child: Container(
                         height: 50.0,
