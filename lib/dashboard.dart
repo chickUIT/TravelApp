@@ -4,8 +4,10 @@ import 'package:flutter/services.dart';
 import 'dart:developer';
 import 'dart:convert';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:workoutapp/Country.dart';
 import 'package:workoutapp/detailspage.dart';
 import 'Destination.dart';
+import 'package:workoutapp/ListItem.dart';
 //import 'package:workoutapp/Country.dart';
 //import 'Service.dart';
 
@@ -17,8 +19,7 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
-    log('dashboard');
-    load();
+    
     //Country _country = Service.getCountry();
     return Column(
       children: <Widget>[
@@ -69,31 +70,22 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         Container(
           height: MediaQuery.of(context).size.height - 150.0,
-          child: ListView(
+          child: ListView.builder(
             padding: EdgeInsets.all(0.0),
-            children: <Widget>[
-              _buildListItem('assets/vietnam.jpg', 'VietNam',
-                  'Land of the Ascending Dragon'),
-              _buildListItem(
-                  'assets/japan.jpg', 'Japan', 'Land of The Rising Sun'),
-              _buildListItem(
-                  'assets/australia.jpg', 'Australia', 'Land of The Kangaroo'),
-            ],
+            itemCount: countryList.length,
+            itemBuilder: (ctx,i)=>ListItem(i),
+            // children: <Widget>[
+            //   _buildListItem('assets/vietnam.jpg', 'VietNam',
+            //       'Land of the Ascending Dragon'),
+            //   _buildListItem(
+            //       'assets/japan.jpg', 'Japan', 'Land of The Rising Sun'),
+            //   _buildListItem(
+            //       'assets/australia.jpg', 'Australia', 'Land of The Kangaroo'),
+            // ],
           ),
         ),
       ],
     );
-  }
-
-  Map<String, String> _localizedValues;
-  Future load() async {
-    String jsonStringValue =
-        await rootBundle.loadString('lib/lang/VietNam.json');
-    Map<String, dynamic> mapJson = json.decode(jsonStringValue);
-    _localizedValues =
-        mapJson.map((key, value) => MapEntry(key, value.toString()));
-    Destination des = Destination.fromJson(jsonStringValue);
-    log(des.regions[0].name);
   }
 
   _buildListItem(String imgPath, String countryName, String description) {
