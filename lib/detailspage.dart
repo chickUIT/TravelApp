@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:workoutapp/ListItem.dart';
+import 'package:workoutapp/StackItem.dart';
 import 'Country.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -13,6 +15,7 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  int _currentindex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +101,9 @@ class _DetailsPageState extends State<DetailsPage> {
                             Icons.more_vert,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            
+                          },
                         )
                       ],
                     ),
@@ -106,53 +111,8 @@ class _DetailsPageState extends State<DetailsPage> {
                   SizedBox(
                     height: 10.0,
                   ),
-                  Stack(
-                    children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.all(0.0),
-                        child: Container(
-                          height: 220.0,
-                          width: 370.0,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            image: DecorationImage(
-                              image: AssetImage('assets/kyoto.jpg'),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                  Colors.black.withOpacity(0.5),
-                                  BlendMode.darken),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: 125.0,
-                        left: 10.0,
-                        child: Container(
-                          width: MediaQuery.of(context).size.width - 60.0,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text('Kyoto tour',
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 18.0,
-                                        fontWeight: FontWeight.bold,
-                                        textStyle:
-                                            TextStyle(color: Colors.white),
-                                      )),
-                                  Text(
-                                    'Three days tour around Kyoto',
-                                    style: GoogleFonts.montserrat(
-                                        fontSize: 14.0,
-                                        textStyle:
-                                            TextStyle(color: Colors.white)),
-                                  )
-                                ],
-                              ),
-                              Container(
+                  getRegionStack(),
+                  Container(
                                 height: 40.0,
                                 width: 40.0,
                                 decoration: BoxDecoration(
@@ -160,16 +120,18 @@ class _DetailsPageState extends State<DetailsPage> {
                                   color: Colors.white,
                                 ),
                                 child: Center(
-                                  child: Icon(Icons.arrow_forward_ios,
-                                      color: Color(0xFFFD4F99), size: 14.0),
+                                  child: InkWell(
+                                        child: Icon(Icons.arrow_forward_ios,
+                                        color: Color(0xFFFD4F99), size: 14.0),
+                                        onTap: (){
+                                          setState(() {
+                                            (_currentindex < widget.country.regions.length-1)?_currentindex++:_currentindex--;
+                                            
+                                          });
+                                        },
+                                  ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                   SizedBox(height: 25.0),
                   Container(
                     width: MediaQuery.of(context).size.width - 15.0,
@@ -193,18 +155,12 @@ class _DetailsPageState extends State<DetailsPage> {
                   Container(
                     height: 220.0,
                     width: MediaQuery.of(context).size.width,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        _buildListItem('assets/japan.jpg', 'Takashi castle',
-                            '\$200 - \$400'),
-                        _buildListItem('assets/kyoto.jpg', 'Heaven\'s gate',
-                            '\$50 - \$150'),
-                        _buildListItem('assets/kyoto.jpg', 'Heaven\'s gate',
-                            '\$50 - \$150'),
-                      ],
-                    ),
-                  ),
+                     child: ListView.builder(
+                         scrollDirection: Axis.horizontal,
+                         itemCount: widget.country.regions[_currentindex].destinations.length,
+                         itemBuilder: (ctx ,i)=>listviewItem(widget.country.regions[_currentindex].destinations, i),
+                  ),)
+                   
                 ],
               ),
             ),
@@ -213,54 +169,20 @@ class _DetailsPageState extends State<DetailsPage> {
       ),
     );
   }
-
-  _buildListItem(String imgPath, String placeName, String price) {
-    return Padding(
-        padding: EdgeInsets.all(10.0),
-        child: Stack(children: [
-          Container(
-              height: 200.0,
-              width: 160.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(7.0),
-                  image: DecorationImage(
-                      image: AssetImage(imgPath),
-                      fit: BoxFit.cover,
-                      colorFilter: ColorFilter.mode(
-                          Colors.black.withOpacity(0.6), BlendMode.darken)))),
-          Positioned(
-              top: 15.0,
-              right: 15.0,
-              child: Container(
-                  height: 25.0,
-                  width: 25.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5.0),
-                      color: Colors.white),
-                  child: Center(
-                      child: Icon(
-                    Icons.bookmark_border,
-                    color: Color(0xFFFD4F99),
-                    size: 14.0,
-                  )))),
-          Positioned(
-              top: 150.0,
-              left: 15.0,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(placeName,
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15.0,
-                          textStyle: TextStyle(color: Colors.white))),
-                  Text(price,
-                      style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14.0,
-                          textStyle: TextStyle(color: Colors.white)))
-                ],
-              ))
-        ]));
+  Widget getRegionStack()
+  {
+    return IndexedStack(
+                    index:_currentindex,
+                    children: buildlistStack(),
+                  );
+  }
+  List<stackItem> buildlistStack()
+  {
+    List<stackItem> stackList = List<stackItem>() ;
+    for (int i = 0;i<widget.country.regions.length;i++)
+    {
+      stackList.add(stackItem(widget.country,i));
+    }
+    return stackList;
   }
 }

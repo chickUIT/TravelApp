@@ -8,13 +8,13 @@
             "img": "/abc",
             "destination": [
                 {
-                    "name": "Da Nang",
+                    "name": "Cau vang",
                     "img": "/abc",
                     "lat" : 0,
                     "lon" : 0
                 },
                 {
-                    "name": "Tay Ninh",
+                    "name": "BanaHills",
                     "img": "/abc",
                     "lat" : 0,
                     "lon" : 0
@@ -26,11 +26,11 @@
             "img": "/abc",
             "destination": [
                 {
-                    "name": "Da Nang",
+                    "name": "Nui ba Den",
                     "img": "/abc"
                 },
                 {
-                    "name": "Tay Ninh",
+                    "name": "Toa thanh dao cao dai",
                     "img": "/abc"
                 }
             ]
