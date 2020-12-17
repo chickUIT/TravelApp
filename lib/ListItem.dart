@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:workoutapp/Destination.dart';
-import 'package:workoutapp/Region.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-class listviewItem extends StatelessWidget{
-   final int desindex;
-   List<Destination> topDes=[];
-    listviewItem(List<Destination> destinations,this.desindex)
-  {
-    this.topDes = destinations;
-  }
+class ListItem extends StatelessWidget {
+  final int desindex;
+  final List<Destination> topDes;
+  ListItem(this.topDes, this.desindex);
   @override
- 
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.all(10.0),
         child: Stack(children: [
@@ -54,7 +47,7 @@ class listviewItem extends StatelessWidget{
                           fontWeight: FontWeight.w500,
                           fontSize: 15.0,
                           textStyle: TextStyle(color: Colors.white))),
-                  Text('200-400$topDes',
+                  Text('200-400\$',
                       style: GoogleFonts.montserrat(
                           fontWeight: FontWeight.w400,
                           fontSize: 14.0,

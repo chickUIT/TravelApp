@@ -5,17 +5,23 @@
     "region": [
         {
             "name": "Da Nang",
-            "img": "/abc",
+            "img": "assets/vietnam.jpg",
             "destination": [
                 {
-                    "name": "Cau vang",
-                    "img": "/abc",
+                    "name": "Cau vang 1",
+                    "img": "assets/vietnam.jpg",
+                    "lat" : 0,
+                    "lon" : 0
+                },
+                {
+                    "name": "Cau vang 2",
+                    "img": "assets/vietnam.jpg",
                     "lat" : 0,
                     "lon" : 0
                 },
                 {
                     "name": "BanaHills",
-                    "img": "/abc",
+                    "img": "assets/vietnam.jpg",
                     "lat" : 0,
                     "lon" : 0
                 }
@@ -23,15 +29,15 @@
         },
         {
             "name": "Tay Ninh",
-            "img": "/abc",
+            "img": "assets/vietnam.jpg",
             "destination": [
                 {
                     "name": "Nui ba Den",
-                    "img": "/abc"
+                    "img": "assets/vietnam.jpg"
                 },
                 {
                     "name": "Toa thanh dao cao dai",
-                    "img": "/abc"
+                    "img": "assets/vietnam.jpg"
                 }
             ]
         }

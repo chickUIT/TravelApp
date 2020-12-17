@@ -135,7 +135,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      country.regions[1].name,
+                      country.name,
                       style: GoogleFonts.montserrat(
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
