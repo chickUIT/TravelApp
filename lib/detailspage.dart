@@ -1,9 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:workoutapp/ListItem.dart';
-import 'package:workoutapp/StackItem.dart';
+import 'package:travelapp/ListItem.dart';
+import 'package:travelapp/StackItem.dart';
 import 'Country.dart';
 
 class DetailsPage extends StatefulWidget {

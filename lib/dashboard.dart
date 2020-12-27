@@ -3,8 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'dart:developer';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:workoutapp/Country.dart';
-import 'package:workoutapp/detailspage.dart';
+import 'package:travelapp/detailspage.dart';
 import 'Country.dart';
 
 class DashboardPage extends StatefulWidget {

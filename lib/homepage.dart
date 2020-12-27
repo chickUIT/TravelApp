@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dashboard.dart';
 
 class HomePage extends StatefulWidget {
+  static String routeName = '/home_page';
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -71,7 +72,10 @@ class _HomePageState extends State<HomePage>
           ),
           BottomNavigationBarItem(
             backgroundColor: Color(0xFF1B1B1B),
-            icon: Icon(Icons.person_outline),
+            icon: Icon(
+              Icons.person_outline,
+            ),
+            //press: () {Navigator.pushNamed(context, ProfileSceen.routeName);};
             title: Container(
               width: 5.0,
               height: 5.0,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workoutapp/Country.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp/Country.dart';
 
 class StackItem extends StatelessWidget {
   final Country country;

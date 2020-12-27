@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:workoutapp/Destination.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp/Destination.dart';
 
 class ListItem extends StatelessWidget {
   final int desindex;

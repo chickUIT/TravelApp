@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
-import 'homepage.dart';
+import 'package:travelapp/routs.dart';
+import 'package:travelapp/screens/splash/splash_screen.dart';
+import 'package:travelapp/theme.dart';
 
-void main() => runApp(MyApp());
+
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      title: 'Travel App',
+      theme: theme(),
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }
