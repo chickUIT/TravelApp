@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/profile/profile_screen.dart';
 
 import 'dashboard.dart';
 
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage>
     DashboardPage(),
     DashboardPage(),
     DashboardPage(),
-    DashboardPage(),
+    ProfileSceen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -75,7 +76,7 @@ class _HomePageState extends State<HomePage>
             icon: Icon(
               Icons.person_outline,
             ),
-            //press: () {Navigator.pushNamed(context, ProfileSceen.routeName);};
+            //Press: () {Navigator.pushNamed(context, ProfileSceen.routeName);};
             title: Container(
               width: 5.0,
               height: 5.0,

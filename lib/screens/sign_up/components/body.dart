@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/screens/complete_profile/complete_profile_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
 import 'package:travelapp/size_config.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:travelapp/homepage.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -42,6 +44,11 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _conformpasswordController = TextEditingController();
   final _fornKey = GlobalKey<FormState>();
   String account;
   String password;
@@ -64,7 +71,17 @@ class _SignUpFormState extends State<SignUpForm> {
             text: "Continute",
             press: () {
               if (_fornKey.currentState.validate()) {
-                Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                if (_emailController.text == "" || _conformpasswordController.text == "" || _passwordController.text == "") {
+                  _showToast("You need write full infomation");
+                } else {
+                  if (_passwordController.text != _conformpasswordController.text) {
+                    print(password);
+                    _showToast("Password and Confirm Password not correct !");
+                  } else {
+                    signUp(_emailController.text, _passwordController.text);
+                  }
+                }
+               // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
           ),
@@ -73,8 +90,60 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
+  Future<String> signUp(String email, String password) async {
+    FirebaseUser user;
+    String errorMessage;
+    try {
+      AuthResult result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      user = result.user;
+      email = user.email;
+      _showToast("Rigister Success");
+    } catch (error) {
+      switch (error.code) {
+        case "ERROR_OPERATION_NOT_ALLOWED":
+          errorMessage = "Anonymous accounts are not enabled";
+          break;
+        case "ERROR_WEAK_PASSWORD":
+          errorMessage = "Your password is too weak";
+          break;
+        case "ERROR_INVALID_EMAIL":
+          errorMessage = "Your email is invalid";
+          break;
+        case "ERROR_EMAIL_ALREADY_IN_USE":
+          errorMessage = "Email is already in use on different account";
+          break;
+        case "ERROR_INVALID_CREDENTIAL":
+          errorMessage = "Your email is invalid";
+          break;
+
+        default:
+          errorMessage = "An undefined Error happened.";
+      }
+    }
+    if (errorMessage != null) {
+      _showToast(errorMessage);
+      return Future.error(errorMessage);
+    } else {
+      Navigator.pushNamed(context, HomePage.routeName);
+    }
+    return errorMessage;
+  }
+
+  void _showToast (String text) {
+    Fluttertoast.showToast(
+        msg: text,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 2,
+        backgroundColor: Colors.blue,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
   TextFormField buildPasswordFormField() {
     return TextFormField(
+      controller: _conformpasswordController,
       style: TextStyle(color: Colors.white54),
       obscureText: true,
       onSaved: (newValue) => password = newValue,
@@ -90,6 +159,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildPassword2FormField() {
     return TextFormField(
+      controller: _passwordController,
       style: TextStyle(color: Colors.white54),
       obscureText: true,
       onSaved: (newValue) => conformpassword = newValue,
@@ -105,6 +175,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildFormField() {
     return TextFormField(
+      controller: _emailController,
       style: TextStyle(color: Colors.white54),
       onSaved: (newValue) => account = newValue,
       decoration: InputDecoration(

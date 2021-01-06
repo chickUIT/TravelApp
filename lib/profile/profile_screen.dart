@@ -14,7 +14,6 @@ class ProfileSceen extends StatelessWidget {
         title: Text("Profile"),
       ),
       body: BodyProfile(),
-      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
     );
   }
 }
