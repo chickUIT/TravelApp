@@ -1,13 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:travelapp/homepage.dart';
+import 'package:travelapp/screens/sign_in/sign_in_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
-
-import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class Body extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
+
     return SizedBox(
       width: double.infinity,
       child: Padding(
@@ -44,14 +45,22 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  bool _success;
+  String _userEmail;
+  String _notication;
   final _fornKey = GlobalKey<FormState>();
   String firstname;
   String lastname;
   String phone;
   String address;
   final List<String> errors = [];
-  @override
+
   Widget build(BuildContext context) {
+
     return Form(
       key: _fornKey,
       child: Column(
@@ -67,18 +76,19 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButtom(
             text: "Rigister",
-            press: () {
+            press: () async {
               if (_fornKey.currentState.validate()) {
-                //Goto mainpage
-                Navigator.pushNamed(context, HomePage.routeName);
+
               }
             },
           ),
+
         ],
       ),
     );
   }
 
+  
   TextFormField buildfirstnameField() {
     return TextFormField(
       style: TextStyle(color: Colors.white54),
