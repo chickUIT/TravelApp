@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/profile/profile_menu.dart';
-//import 'package:travelapp/screens/sign_in/sign_in_screen.dart';
 import 'package:travelapp/screens/splash/splash_screen.dart';
 
 
