@@ -132,7 +132,7 @@ class _MapPageState extends State<MapPage> {
                     ),
                     Column(children: <Widget>[
                       SizedBox(
-                        height: 780.0,
+                        height: 700.0,
                       ),
                       FloatingActionButton(
                         child: Icon(

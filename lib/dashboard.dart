@@ -61,7 +61,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       color: Color(0xFFFD4F99)),
                   child: Center(
                     child: Icon(
-                      Icons.filter_list,
+                      Icons.arrow_back_ios,
                       color: Colors.white,
                     ),
                   ),
@@ -91,10 +91,12 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height - 150.0,
+            height: MediaQuery.of(context).size.height - 149.0,
             child: ListView(
               padding: EdgeInsets.all(0.0),
               children: <Widget>[
+                _buildListItem(jsonStringVI),
+                _buildListItem(jsonStringVI),
                 _buildListItem(jsonStringVI),
               ],
             ),
