@@ -1,193 +1,185 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:travelapp/ListItem.dart';
-import 'package:travelapp/StackItem.dart';
-import 'Country.dart';
+import 'package:travelapp/mappage.dart';
 
 class DetailsPage extends StatefulWidget {
-  final Country country;
-  DetailsPage(this.country);
-
+  //final img, title, latitude, longtitude;
+  //DetailsPage(this.img, this.title, this.latitude, this.longtitude);
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  int _currentindex = 0;
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-              image: AssetImage(widget.country.img),
-              fit: BoxFit.cover,
-            )),
-          ),
-          BackdropFilter(
-            filter: new ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-            child: Container(
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(15.0, 35.0, 15.0, 15.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              foregroundDecoration: BoxDecoration(color: Colors.black26),
+              height: 400,
+              child: Image.asset('assets/japan.jpg', fit: BoxFit.cover)),
+          SingleChildScrollView(
+            padding: const EdgeInsets.only(top: 16.0, bottom: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                const SizedBox(height: 250),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    "Japan\nLand of JAV",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 28.0,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(height: 10.0),
+                Row(
+                  children: <Widget>[
+                    const SizedBox(width: 16.0),
+                    Container(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8.0, horizontal: 16.0),
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade200,
+                            borderRadius: BorderRadius.circular(20.0)),
+                        child: Text(
+                          "8.4/100 reviews",
+                          style: TextStyle(color: Colors.black, fontSize: 12.0),
+                        )),
+                    Spacer(),
+                    IconButton(
+                        color: Colors.white,
+                        icon: Icon(Icons.favorite_border),
+                        onPressed: () {})
+                  ],
+                ),
+                const SizedBox(height: 10.0),
                 Container(
-                  height: 40.0,
-                  width: 40.0,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7.0),
-                      color: Color(0xFFFD4F99)),
-                  child: Center(
-                    child: Icon(
-                      Icons.filter_list,
-                      color: Colors.white,
-                    ),
+                  padding: const EdgeInsets.all(32.0),
+                  color: Colors.white,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                Row(children: <Widget>[
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    color: Colors.yellow,
+                                  ),
+                                  Icon(
+                                    Icons.star_border,
+                                    color: Colors.yellow,
+                                  ),
+                                ]),
+                                SizedBox(height: 5.0),
+                                Text(
+                                  "4.0 / 5.0",
+                                  style: TextStyle(
+                                      fontSize: 14.0, color: Colors.grey),
+                                ),
+                              ])),
+                          Column(
+                            children: <Widget>[
+                              Text(
+                                "200\$ - 400\$",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0),
+                              ),
+                              SizedBox(height: 5.0),
+                              Text(
+                                "/per day",
+                                style: TextStyle(
+                                    fontSize: 14.0, color: Colors.grey),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 30.0),
+                      SizedBox(
+                        width: double.infinity,
+                        child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0)),
+                          color: Colors.purple,
+                          textColor: Colors.white,
+                          child: Text(
+                            "Go Now",
+                            style: TextStyle(fontWeight: FontWeight.normal),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 16.0,
+                            horizontal: 32.0,
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => MapPage()));
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 30.0),
+                      Text(
+                        "Description".toUpperCase(),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 14.0),
+                      ),
+                      const SizedBox(height: 10.0),
+                      Text(
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300, fontSize: 14.0),
+                      ),
+                      const SizedBox(height: 10.0),
+                      Text(
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300, fontSize: 14.0),
+                      ),
+                    ],
                   ),
-                ),
-                Text(
-                  widget.country.name.toString().toUpperCase(),
-                  style: GoogleFonts.montserrat(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w300,
-                      textStyle: TextStyle(color: Colors.white)),
-                ),
-                Container(
-                  height: 40.0,
-                  width: 40.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7.0),
-                    color: Color(0xFF353535),
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.bookmark_border,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                )
               ],
             ),
           ),
           Positioned(
-            top: 120.0,
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    width: MediaQuery.of(context).size.width - 15.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          '  Trending Attractions',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                            textStyle: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.more_vert,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  getRegionStack(),
-                  SizedBox(height: 25.0),
-                  Container(
-                    width: MediaQuery.of(context).size.width - 15.0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          '  Weekly Highlights',
-                          style: GoogleFonts.montserrat(
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold,
-                            textStyle: TextStyle(color: Colors.white),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Container(
-                    height: 220.0,
-                    width: MediaQuery.of(context).size.width,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: widget
-                          .country.regions[_currentindex].destinations.length,
-                      itemBuilder: (ctx, i) => ListItem(
-                          widget.country.regions[_currentindex].destinations,
-                          i),
-                    ),
-                  )
-                ],
+            top: 0,
+            left: 0,
+            right: 0,
+            child: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+              centerTitle: true,
+              title: Text(
+                "DETAIL",
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),
               ),
             ),
           ),
-          Positioned(
-            top: 330.0,
-            right: 20.0,
-            child: Container(
-              height: 40.0,
-              width: 40.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(7.0),
-                color: Colors.white,
-              ),
-              child: Center(
-                child: InkWell(
-                  child: Icon(Icons.arrow_forward_ios,
-                      color: Color(0xFFFD4F99), size: 14.0),
-                  onTap: () {
-                    setState(() {
-                      _currentindex =
-                          (_currentindex < widget.country.regions.length - 1)
-                              ? _currentindex + 1
-                              : 0;
-                    });
-                  },
-                ),
-              ),
-            ),
-          )
         ],
       ),
     );
-  }
-
-  Widget getRegionStack() {
-    return IndexedStack(
-      index: _currentindex,
-      children: buildlistStack(),
-    );
-  }
-
-  List<StackItem> buildlistStack() {
-    List<StackItem> stackList = List<StackItem>();
-    for (int i = 0; i < widget.country.regions.length; i++) {
-      stackList.add(StackItem(widget.country, i));
-    }
-    return stackList;
   }
 }

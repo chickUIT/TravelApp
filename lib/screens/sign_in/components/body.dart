@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants.dart';
-import 'package:travelapp/screens/sign_in/sign_in_screen.dart';
 import 'package:travelapp/screens/sign_up/sign_up_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
 import 'package:travelapp/size_config.dart';
@@ -154,7 +153,7 @@ class _SignFornState extends State<SignForn> {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 2,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         textColor: Colors.white,
         fontSize: 16.0);
   }

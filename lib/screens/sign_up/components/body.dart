@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/screens/complete_profile/complete_profile_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
 import 'package:travelapp/size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:travelapp/screens/complete_profile/components/complete_profile_screen.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -136,7 +136,7 @@ class _SignUpFormState extends State<SignUpForm> {
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 2,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue,
         textColor: Colors.white,
         fontSize: 16.0);
   }

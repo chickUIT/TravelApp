@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'dart:developer';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travelapp/detailspage.dart';
+import 'package:travelapp/destinationpage.dart';
 import 'Country.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -155,7 +155,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     InkWell(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => DetailsPage(country)));
+                            builder: (context) => DestinationPage(country)));
                       },
                       child: Container(
                         height: 50.0,

@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage>
             icon: Icon(
               Icons.person_outline,
             ),
-            //press: () {Navigator.pushNamed(context, ProfileSceen.routeName);};
+            //Press: () {Navigator.pushNamed(context, ProfileSceen.routeName);};
             title: Container(
               width: 5.0,
               height: 5.0,
