@@ -3,7 +3,6 @@ import 'package:travelapp/screens/complete_profile/complete_profile_screen.dart'
 import 'package:travelapp/screens/splash/components/body.dart';
 import 'package:travelapp/size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:travelapp/homepage.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Body extends StatelessWidget {
@@ -99,7 +98,6 @@ class _SignUpFormState extends State<SignUpForm> {
           email: email, password: password);
       user = result.user;
       email = user.email;
-      _showToast("Rigister Success");
     } catch (error) {
       switch (error.code) {
         case "ERROR_OPERATION_NOT_ALLOWED":
@@ -126,7 +124,8 @@ class _SignUpFormState extends State<SignUpForm> {
       _showToast(errorMessage);
       return Future.error(errorMessage);
     } else {
-      Navigator.pushNamed(context, HomePage.routeName);
+      //Navigator.pushNamed(context, HomePage.routeName);
+      Navigator.pushNamed(context, CompleteProfileScreen.routeName);
     }
     return errorMessage;
   }

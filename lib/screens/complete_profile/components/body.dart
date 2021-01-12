@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/screens/sign_in/sign_in_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
 import '../../../size_config.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:travelapp/homepage.dart';
 
 class Body extends StatelessWidget {
 
@@ -47,11 +50,10 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  bool _success;
-  String _userEmail;
-  String _notication;
+  final TextEditingController _firstName = TextEditingController();
+  final TextEditingController _lastName = TextEditingController();
+  final TextEditingController _phoneNumber = TextEditingController();
+  final TextEditingController _address = TextEditingController();
   final _fornKey = GlobalKey<FormState>();
   String firstname;
   String lastname;
@@ -78,7 +80,11 @@ class _SignUpFormState extends State<SignUpForm> {
             text: "Rigister",
             press: () async {
               if (_fornKey.currentState.validate()) {
-
+                if (_firstName.text == "" || _lastName.text == "" || _phoneNumber.text == "" || _address.text == "") {
+                  _showToast("You need write full infomation");
+                } else {
+                  completeInfo();
+                }
               }
             },
           ),
@@ -88,9 +94,36 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
+  void _showToast (String text) {
+    Fluttertoast.showToast(
+        msg: text,
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 2,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0);
+  }
+
+  Future<void> completeInfo() async {
+    try {
+      _auth.currentUser().then((user) {
+        FirebaseDatabase.instance.reference().child("allUser").child(user.uid).set({
+          "name": _firstName.text + _lastName.text,
+          "phone": _phoneNumber.text,
+          "address": _address.text,
+        });
+      });
+      _showToast("Register suscess");
+      Navigator.pushNamed(context, HomePage.routeName);
+    } catch (error) {
+      _showToast(error);
+    }
+  }
   
   TextFormField buildfirstnameField() {
     return TextFormField(
+      controller: _firstName,
       style: TextStyle(color: Colors.white54),
       onSaved: (newValue) => firstname = newValue,
       decoration: InputDecoration(
@@ -105,6 +138,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildlastnameField() {
     return TextFormField(
+      controller: _lastName,
       style: TextStyle(color: Colors.white54),
       onSaved: (newValue) => lastname = newValue,
       decoration: InputDecoration(
@@ -119,6 +153,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildphoneField() {
     return TextFormField(
+      controller: _phoneNumber,
       style: TextStyle(color: Colors.white54),
       onSaved: (newValue) => phone = newValue,
       decoration: InputDecoration(
@@ -133,6 +168,7 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextFormField buildaddressField() {
     return TextFormField(
+      controller: _address,
       style: TextStyle(color: Colors.white54),
       onSaved: (newValue) => address = newValue,
       decoration: InputDecoration(

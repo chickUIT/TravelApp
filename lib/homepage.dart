@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:travelapp/profile/profile_screen.dart';
 import 'dashboard.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage>
     DashboardPage(),
     DashboardPage(),
     DashboardPage(),
-    DashboardPage(),
+    ProfileSceen(),
   ];
   @override
   Widget build(BuildContext context) {
