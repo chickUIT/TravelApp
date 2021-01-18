@@ -132,15 +132,22 @@ class _MapPageState extends State<MapPage> {
                     ),
                     Column(children: <Widget>[
                       SizedBox(
-                        height: 780.0,
+                        height: 800.0,
                       ),
-                      FloatingActionButton(
-                        child: Icon(
-                          Icons.my_location,
-                          size: 30.0,
+                      Positioned(
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        child: FloatingActionButton(
+                          child: Icon(
+                            Icons.my_location,
+                            size: 30.0,
+                            color: Colors.white,
+                          ),
+                          onPressed: _getCurrentLocation,
+                          backgroundColor: Colors.blueAccent,
                         ),
-                        onPressed: _getCurrentLocation,
-                        backgroundColor: Colors.blueAccent,
                       ),
                     ]),
                   ],

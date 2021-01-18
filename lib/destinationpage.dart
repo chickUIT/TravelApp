@@ -165,7 +165,7 @@ class _DestinationPageState extends State<DestinationPage> {
               child: Center(
                 child: InkWell(
                   child: Icon(Icons.arrow_forward_ios,
-                      color: Color(0xFFFD4F99), size: 14.0),
+                      color: Color(0xFFFD4F99), size: 20.0),
                   onTap: () {
                     setState(() {
                       _currentindex =

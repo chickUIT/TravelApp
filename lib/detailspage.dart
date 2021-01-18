@@ -122,7 +122,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         child: RaisedButton(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0)),
-                          color: Colors.purple,
+                          color: Colors.blueAccent[200],
                           textColor: Colors.white,
                           child: Text(
                             "Go Now",
