@@ -1,16 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:travelapp/screens/home_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
 import '../../../size_config.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:travelapp/homepage.dart';
 
 class Body extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
     return SizedBox(
       width: double.infinity,
       child: Padding(
@@ -47,7 +45,6 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _firstName = TextEditingController();
   final TextEditingController _lastName = TextEditingController();
@@ -61,7 +58,6 @@ class _SignUpFormState extends State<SignUpForm> {
   final List<String> errors = [];
 
   Widget build(BuildContext context) {
-
     return Form(
       key: _fornKey,
       child: Column(
@@ -79,7 +75,10 @@ class _SignUpFormState extends State<SignUpForm> {
             text: "Rigister",
             press: () async {
               if (_fornKey.currentState.validate()) {
-                if (_firstName.text == "" || _lastName.text == "" || _phoneNumber.text == "" || _address.text == "") {
+                if (_firstName.text == "" ||
+                    _lastName.text == "" ||
+                    _phoneNumber.text == "" ||
+                    _address.text == "") {
                   _showToast("You need write full infomation");
                 } else {
                   completeInfo();
@@ -87,13 +86,12 @@ class _SignUpFormState extends State<SignUpForm> {
               }
             },
           ),
-
         ],
       ),
     );
   }
 
-  void _showToast (String text) {
+  void _showToast(String text) {
     Fluttertoast.showToast(
         msg: text,
         toastLength: Toast.LENGTH_SHORT,
@@ -107,19 +105,23 @@ class _SignUpFormState extends State<SignUpForm> {
   Future<void> completeInfo() async {
     try {
       _auth.currentUser().then((user) {
-        FirebaseDatabase.instance.reference().child("allUser").child(user.uid).set({
+        FirebaseDatabase.instance
+            .reference()
+            .child("allUser")
+            .child(user.uid)
+            .set({
           "name": _firstName.text + _lastName.text,
           "phone": _phoneNumber.text,
           "address": _address.text,
         });
       });
       _showToast("Register suscess");
-      Navigator.pushNamed(context, HomePage.routeName);
+      Navigator.pushNamed(context, HomeScreen.routeName);
     } catch (error) {
       _showToast(error);
     }
   }
-  
+
   TextFormField buildfirstnameField() {
     return TextFormField(
       controller: _firstName,

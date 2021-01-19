@@ -4,7 +4,9 @@ import 'constants.dart';
 
 ThemeData theme() {
   return ThemeData(
-    scaffoldBackgroundColor: Color(0xFF202020),
+    primaryColor: Color(0xFF3EBACE),
+    accentColor: Color(0xFFD8ECF1),
+    scaffoldBackgroundColor: Color(0xFFF3F5F7),
     fontFamily: "Muli",
     appBarTheme: appBarTheme(),
     textTheme: textTheme(),

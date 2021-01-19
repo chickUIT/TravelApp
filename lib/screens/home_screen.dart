@@ -10,6 +10,7 @@ import 'package:travelapp/widgets/hotel_carousel.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
+  static String routeName = '/home_page';
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

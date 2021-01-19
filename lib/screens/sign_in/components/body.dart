@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/constants.dart';
+import 'package:travelapp/screens/home_screen.dart';
 import 'package:travelapp/screens/sign_up/sign_up_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
 import 'package:travelapp/size_config.dart';
-import 'package:travelapp/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -72,7 +72,6 @@ class SignForn extends StatefulWidget {
 }
 
 class _SignFornState extends State<SignForn> {
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -96,7 +95,8 @@ class _SignFornState extends State<SignForn> {
           DefaultButtom(
             text: "Sign In",
             press: () {
-              if (_emailController.text == "" || _passwordController.text == "") {
+              if (_emailController.text == "" ||
+                  _passwordController.text == "") {
                 _showToast("Please enter full infomation");
               } else {
                 signIn(_emailController.text, _passwordController.text);
@@ -142,12 +142,12 @@ class _SignFornState extends State<SignForn> {
       _showToast(errorMessage);
       return Future.error(errorMessage);
     } else {
-      Navigator.pushNamed(context, HomePage.routeName);
+      Navigator.pushNamed(context, HomeScreen.routeName);
     }
     return errorMessage;
   }
 
-  void _showToast (String text) {
+  void _showToast(String text) {
     Fluttertoast.showToast(
         msg: text,
         toastLength: Toast.LENGTH_SHORT,
