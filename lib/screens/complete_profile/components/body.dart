@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
               Text(
                 "Complete Profile",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: getProportionateScreenWidth(28),
                   fontWeight: FontWeight.bold,
                 ),
@@ -125,13 +125,13 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildfirstnameField() {
     return TextFormField(
       controller: _firstName,
-      style: TextStyle(color: Colors.white54),
+      style: TextStyle(color: Colors.black),
       onSaved: (newValue) => firstname = newValue,
       decoration: InputDecoration(
         labelText: "First name",
-        labelStyle: new TextStyle(color: Colors.white),
+        labelStyle: new TextStyle(color: Colors.black),
         hintText: "Enter your first name",
-        hintStyle: new TextStyle(color: Colors.white24),
+        hintStyle: new TextStyle(color: Colors.black26),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
@@ -140,13 +140,13 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildlastnameField() {
     return TextFormField(
       controller: _lastName,
-      style: TextStyle(color: Colors.white54),
+      style: TextStyle(color: Colors.black),
       onSaved: (newValue) => lastname = newValue,
       decoration: InputDecoration(
         labelText: "Last name",
-        labelStyle: new TextStyle(color: Colors.white),
+        labelStyle: new TextStyle(color: Colors.black),
         hintText: "Enter your last name",
-        hintStyle: new TextStyle(color: Colors.white24),
+        hintStyle: new TextStyle(color: Colors.black26),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
@@ -155,13 +155,13 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildphoneField() {
     return TextFormField(
       controller: _phoneNumber,
-      style: TextStyle(color: Colors.white54),
+      style: TextStyle(color: Colors.black),
       onSaved: (newValue) => phone = newValue,
       decoration: InputDecoration(
         labelText: "Phone Number",
-        labelStyle: new TextStyle(color: Colors.white),
+        labelStyle: new TextStyle(color: Colors.black),
         hintText: "Enter your phone number",
-        hintStyle: new TextStyle(color: Colors.white24),
+        hintStyle: new TextStyle(color: Colors.black26),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
@@ -170,13 +170,13 @@ class _SignUpFormState extends State<SignUpForm> {
   TextFormField buildaddressField() {
     return TextFormField(
       controller: _address,
-      style: TextStyle(color: Colors.white54),
+      style: TextStyle(color: Colors.black),
       onSaved: (newValue) => address = newValue,
       decoration: InputDecoration(
         labelText: "Address",
-        labelStyle: new TextStyle(color: Colors.white),
+        labelStyle: new TextStyle(color: Colors.black),
         hintText: "Enter your address",
-        hintStyle: new TextStyle(color: Colors.white24),
+        hintStyle: new TextStyle(color: Colors.black26),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );

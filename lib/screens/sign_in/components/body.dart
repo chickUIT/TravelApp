@@ -24,7 +24,7 @@ class Body extends StatelessWidget {
                 Text(
                   "Welcome Back",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: getProportionateScreenWidth(28),
                     fontWeight: FontWeight.bold,
                   ),
@@ -154,21 +154,21 @@ class _SignFornState extends State<SignForn> {
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 2,
         backgroundColor: Colors.blue,
-        textColor: Colors.white,
+        textColor: Colors.black,
         fontSize: 16.0);
   }
 
   TextFormField buildPasswordFormField() {
     return TextFormField(
       controller: _passwordController,
-      style: TextStyle(color: Colors.white54),
+      style: TextStyle(color: Colors.black),
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       decoration: InputDecoration(
         labelText: "Password",
-        labelStyle: new TextStyle(color: Colors.white),
+        labelStyle: new TextStyle(color: Colors.black),
         hintText: "Enter your password",
-        hintStyle: new TextStyle(color: Colors.white24),
+        hintStyle: new TextStyle(color: Colors.black26),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
@@ -177,13 +177,13 @@ class _SignFornState extends State<SignForn> {
   TextFormField buildTextFormField() {
     return TextFormField(
       controller: _emailController,
-      style: TextStyle(color: Colors.white54),
+      style: TextStyle(color: Colors.black),
       onSaved: (newValue) => account = newValue,
       decoration: InputDecoration(
         labelText: "Account",
-        labelStyle: new TextStyle(color: Colors.white),
+        labelStyle: new TextStyle(color: Colors.black),
         hintText: "Enter your account",
-        hintStyle: new TextStyle(color: Colors.white24),
+        hintStyle: new TextStyle(color: Colors.black26),
         floatingLabelBehavior: FloatingLabelBehavior.always,
       ),
     );
