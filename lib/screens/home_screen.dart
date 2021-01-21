@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/models/destination_model.dart';
 import 'package:travelapp/models/hotel_model.dart';
@@ -154,8 +156,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future load() async {
-    jsonString = await rootBundle.loadString('assets/data/data.json');
-    log("Data loaded");
-    return jsonString;
+    //jsonString = await rootBundle.loadString('assets/data/data.json');
+    final http.Response response = await http.get(
+        'https://6007fe54309f8b0017ee51c2.mockapi.io/api/v1/destination',
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        });
+    return response.body.toString();
+
+    // log("Data loaded");
+    // return jsonString;
   }
 }
