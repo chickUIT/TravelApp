@@ -1,19 +1,9 @@
-import 'dart:convert';
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travelapp/models/destination_model.dart';
-import 'package:travelapp/models/hotel_model.dart';
 import 'package:travelapp/profile/profile_screen.dart';
 import 'package:travelapp/screens/splash/home.dart';
-import 'package:travelapp/widgets/destination_carousel.dart';
-import 'package:travelapp/widgets/hotel_carousel.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../dashboard.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = '/home_page';
@@ -24,61 +14,21 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   int _currentTab = 0;
-
-  String jsonString = null;
-  List<Destination> destinations;
-  List<Hotel> hotels;
-  List children = [
-    HomeScreen1(),
-    HomeScreen1(),
-    ProfileSceen(),
-  ];
-
+  String jsonString;
+  HomeScreen1 home;
+  ProfileSceen profile = new ProfileSceen();
   @override
   void initState() {
     super.initState();
     load().then((data) {
       setState(() {
         this.jsonString = data;
-        this.destinations = getDestinations(jsonString);
-        this.hotels = getHotels(jsonString);
+        home = new HomeScreen1();
+        home.jsonString = jsonString;
+        log(home.jsonString);
         log('Set state');
       });
     });
-  }
-
-  List<IconData> _icons = [
-    FontAwesomeIcons.plane,
-    FontAwesomeIcons.bed,
-    FontAwesomeIcons.walking,
-    FontAwesomeIcons.biking,
-  ];
-
-  Widget _buildIcon(int index) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
-      child: Container(
-        height: 60.0,
-        width: 60.0,
-        decoration: BoxDecoration(
-          color: _selectedIndex == index
-              ? Theme.of(context).accentColor
-              : Color(0xFFE7EBEE),
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        child: Icon(
-          _icons[index],
-          size: 25.0,
-          color: _selectedIndex == index
-              ? Theme.of(context).primaryColor
-              : Color(0xFFB4C1C4),
-        ),
-      ),
-    );
   }
 
   @override
@@ -95,9 +45,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
     } else {
-      log(jsonString);
+      dynamic child;
+      log("reload home");
+      if (_selectedIndex > 1)
+        child = profile;
+      else
+        child = home;
       return Scaffold(
-        body: children[_selectedIndex],
+        body: child,
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentTab,
           onTap: (currentIndex) {

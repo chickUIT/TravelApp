@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
-import 'package:travelapp/size_config.dart';
+import 'package:travelapp/config/size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:travelapp/screens/complete_profile/components/complete_profile_screen.dart';
@@ -44,11 +44,11 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _conformpasswordController = TextEditingController();
+  final TextEditingController _conformpasswordController =
+      TextEditingController();
   final _fornKey = GlobalKey<FormState>();
   String account;
   String password;
@@ -71,17 +71,20 @@ class _SignUpFormState extends State<SignUpForm> {
             text: "Continute",
             press: () {
               if (_fornKey.currentState.validate()) {
-                if (_emailController.text == "" || _conformpasswordController.text == "" || _passwordController.text == "") {
+                if (_emailController.text == "" ||
+                    _conformpasswordController.text == "" ||
+                    _passwordController.text == "") {
                   _showToast("You need write full infomation");
                 } else {
-                  if (_passwordController.text != _conformpasswordController.text) {
+                  if (_passwordController.text !=
+                      _conformpasswordController.text) {
                     print(password);
                     _showToast("Password and Confirm Password not correct !");
                   } else {
                     signUp(_emailController.text, _passwordController.text);
                   }
                 }
-               // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                // Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
             },
           ),
@@ -130,7 +133,7 @@ class _SignUpFormState extends State<SignUpForm> {
     return errorMessage;
   }
 
-  void _showToast (String text) {
+  void _showToast(String text) {
     Fluttertoast.showToast(
         msg: text,
         toastLength: Toast.LENGTH_SHORT,

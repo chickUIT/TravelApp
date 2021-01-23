@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/size_config.dart';
-
+import 'package:travelapp/config/size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF7643);
 const kPrimaryLightColor = Color(0xFFFFECDF);

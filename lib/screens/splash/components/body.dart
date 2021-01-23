@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/constants.dart';
+import 'package:travelapp/config/constants.dart';
 import 'package:travelapp/screens/sign_in/sign_in_screen.dart';
 import 'package:travelapp/screens/splash/components/splash_content.dart';
-import 'package:travelapp/size_config.dart';
+import 'package:travelapp/config/size_config.dart';
 
 class Body extends StatefulWidget {
   @override

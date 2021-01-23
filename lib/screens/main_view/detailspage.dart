@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/mappage.dart';
+import 'package:travelapp/screens/main_view/mappage.dart';
 
 class DetailsPage extends StatefulWidget {
   //final img, title, latitude, longtitude;
