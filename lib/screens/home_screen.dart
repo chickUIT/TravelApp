@@ -102,6 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: _currentTab,
           onTap: (currentIndex) {
             setState(() {
+              _currentTab = currentIndex;
               _selectedIndex = currentIndex;
             });
           },

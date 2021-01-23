@@ -14,8 +14,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../size_config.dart';
 
 class HomeScreen1 extends StatefulWidget {
-  static String routeName = "home";
-
+  static String routeName = "/home";
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
