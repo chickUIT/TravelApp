@@ -110,7 +110,7 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
             GoogleMap(
@@ -142,7 +142,7 @@ class _MapPageState extends State<MapPage> {
                         child: FloatingActionButton(
                           child: Icon(
                             Icons.my_location,
-                            size: 30.0,
+                            size: 20.0,
                             color: Colors.white,
                           ),
                           onPressed: _getCurrentLocation,
