@@ -7,31 +7,31 @@ import 'package:http/http.dart' as http;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/models/destination_model.dart';
 import 'package:travelapp/models/hotel_model.dart';
-import 'package:travelapp/profile/profile_screen.dart';
-import 'package:travelapp/screens/splash/home.dart';
 import 'package:travelapp/widgets/destination_carousel.dart';
 import 'package:travelapp/widgets/hotel_carousel.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../dashboard.dart';
+import '../../size_config.dart';
 
-class HomeScreen extends StatefulWidget {
-  static String routeName = '/home_page';
+class HomeScreen1 extends StatefulWidget {
+  static String routeName = "home";
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen1> {
+
   int _selectedIndex = 0;
   int _currentTab = 0;
-
   String jsonString = null;
-  List<Destination> destinations;
+
   List<Hotel> hotels;
-  List children = [
-    HomeScreen1(),
-    HomeScreen1(),
-    ProfileSceen(),
+  List<IconData> _icons = [
+    FontAwesomeIcons.plane,
+    FontAwesomeIcons.bed,
+    FontAwesomeIcons.walking,
+    FontAwesomeIcons.biking,
   ];
 
   @override
@@ -47,12 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  List<IconData> _icons = [
-    FontAwesomeIcons.plane,
-    FontAwesomeIcons.bed,
-    FontAwesomeIcons.walking,
-    FontAwesomeIcons.biking,
-  ];
+  List<Destination> destinations;
 
   Widget _buildIcon(int index) {
     return GestureDetector(
@@ -81,56 +76,42 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  @override
   Widget build(BuildContext context) {
-    if (jsonString == null) {
-      return Center(
-        child: Text(
-          "PLEASE WAIT",
-          style: GoogleFonts.montserrat(
-            fontSize: 20.0,
-            fontWeight: FontWeight.w300,
-            textStyle: TextStyle(color: Colors.white),
-          ),
-        ),
-      );
-    } else {
-      log(jsonString);
-      return Scaffold(
-        body: children[_selectedIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentTab,
-          onTap: (currentIndex) {
-            setState(() {
-              _selectedIndex = currentIndex;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.search,
-                size: 30.0,
+    SizeConfig().init(context);
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
+          padding: EdgeInsets.symmetric(vertical: 30.0),
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 20.0, right: 120.0),
+              child: Text(
+                'What would you like to find?',
+                style: TextStyle(
+                  fontSize: 30.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              title: SizedBox.shrink(),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                size: 30.0,
-              ),
-              title: SizedBox.shrink(),
+            SizedBox(height: 20.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _icons
+                  .asMap()
+                  .entries
+                  .map(
+                    (MapEntry map) => _buildIcon(map.key),
+                  )
+                  .toList(),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-                size: 30.0,
-              ),
-              title: SizedBox.shrink(),
-            )
+            SizedBox(height: 20.0),
+            DestinationCarousel(destinations),
+            SizedBox(height: 20.0),
+            HotelCarousel(hotels),
           ],
         ),
-      );
-    }
+      ),
+    );
   }
 
   Future load() async {
