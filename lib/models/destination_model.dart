@@ -14,7 +14,6 @@ class Destination {
       [this.activities]);
 
   factory Destination.fromJson(dynamic json) {
-    log(json['imageUrl'] as String);
     if (json['activity'] != null) {
       var activityObjJson = json['activity'] as List;
       List<Activity> _activities = activityObjJson

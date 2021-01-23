@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:travelapp/screens/home_screen.dart';
+import 'package:travelapp/screens/main_view/home_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
-import '../../../size_config.dart';
+import '../../../config/size_config.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Body extends StatelessWidget {

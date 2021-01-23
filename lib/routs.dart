@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:travelapp/profile/profile_screen.dart';
-import 'package:travelapp/screens/home_screen.dart';
+import 'package:travelapp/screens/main_view/home_screen.dart';
 import 'package:travelapp/screens/complete_profile/complete_profile_screen.dart';
 import 'package:travelapp/screens/sign_in/sign_in_screen.dart';
 import 'package:travelapp/screens/sign_up/sign_up_screen.dart';

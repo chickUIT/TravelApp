@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/constants.dart';
-import 'package:travelapp/screens/home_screen.dart';
+import 'package:travelapp/config/constants.dart';
+import 'package:travelapp/screens/main_view/home_screen.dart';
 import 'package:travelapp/screens/sign_up/sign_up_screen.dart';
 import 'package:travelapp/screens/splash/components/body.dart';
-import 'package:travelapp/size_config.dart';
+import 'package:travelapp/config/size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
