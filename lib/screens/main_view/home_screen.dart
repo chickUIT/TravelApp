@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/profile/profile_screen.dart';
 import 'package:travelapp/screens/splash/home.dart';
 

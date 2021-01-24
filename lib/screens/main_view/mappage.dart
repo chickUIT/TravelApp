@@ -128,7 +128,7 @@ class _MapPageState extends State<MapPage> {
         myLocationButtonEnabled: false,
         myLocationEnabled: true,
         initialCameraPosition: CameraPosition(
-          target: _mapInitLocation,
+          target: LatLng(widget.latitude, widget.longtitude),
           zoom: 15,
         ),
       ),
