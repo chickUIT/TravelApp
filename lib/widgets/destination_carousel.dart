@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/models/destination_model.dart';
 import 'package:travelapp/screens/main_view/destination_screen.dart';
+import 'package:travelapp/screens/main_view/list_destination_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DestinationCarousel extends StatelessWidget {
@@ -9,6 +10,12 @@ class DestinationCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Destination> topdestinations = [
+      destinations[1],
+      destinations[2],
+      destinations[3],
+      destinations[0],
+    ];
     return Column(
       children: <Widget>[
         Padding(
@@ -25,7 +32,14 @@ class DestinationCarousel extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => print('See All'),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ListDestinationScreen(
+                      destinations: destinations,
+                    ),
+                  ),
+                ),
                 child: Text(
                   'See All',
                   style: TextStyle(
@@ -43,9 +57,9 @@ class DestinationCarousel extends StatelessWidget {
           height: 300.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: destinations.length,
+            itemCount: topdestinations.length,
             itemBuilder: (BuildContext context, int index) {
-              Destination destination = destinations[index];
+              Destination destination = topdestinations[index];
               return GestureDetector(
                 onTap: () => Navigator.push(
                   context,

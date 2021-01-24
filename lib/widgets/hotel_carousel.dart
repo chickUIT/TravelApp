@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/models/hotel_model.dart';
+import 'package:travelapp/screens/main_view/list_hotel_screen.dart';
 
 class HotelCarousel extends StatelessWidget {
   final List<Hotel> hotels;
@@ -7,6 +8,7 @@ class HotelCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Hotel> tophotels = [hotels[0], hotels[1], hotels[2]];
     return Column(
       children: <Widget>[
         Padding(
@@ -23,7 +25,14 @@ class HotelCarousel extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () => print('See All'),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ListHotelScreen(
+                      hotels: hotels,
+                    ),
+                  ),
+                ),
                 child: Text(
                   'See All',
                   style: TextStyle(
@@ -41,9 +50,9 @@ class HotelCarousel extends StatelessWidget {
           height: 300.0,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: hotels.length,
+            itemCount: tophotels.length,
             itemBuilder: (BuildContext context, int index) {
-              Hotel hotel = hotels[index];
+              Hotel hotel = tophotels[index];
               return Container(
                 margin: EdgeInsets.all(10.0),
                 width: 240.0,
