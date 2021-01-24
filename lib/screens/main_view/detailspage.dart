@@ -2,13 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/screens/main_view/mappage.dart';
 
 class DetailsPage extends StatefulWidget {
-  //final img, title, latitude, longtitude;
-  //DetailsPage(this.img, this.title, this.latitude, this.longtitude);
+  final String img;
+  final String name;
+  final int price;
+  final String description;
+  final double latitude, longtitude;
+  final int rating;
+  DetailsPage(this.name, this.img, this.description, this.latitude,
+      this.longtitude, this.price, this.rating);
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  Text _buildRatingStars(int rating) {
+    String stars = '';
+    for (int i = 0; i < rating; i++) {
+      stars += '⭐ ';
+    }
+    stars.trim();
+    return Text(stars);
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -16,37 +31,26 @@ class _DetailsPageState extends State<DetailsPage> {
           Container(
               foregroundDecoration: BoxDecoration(color: Colors.black26),
               height: 400,
-              child: Image.asset('assets/japan.jpg', fit: BoxFit.cover)),
+              child: Image.asset(widget.img, fit: BoxFit.cover)),
           SingleChildScrollView(
             padding: const EdgeInsets.only(top: 16.0, bottom: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 const SizedBox(height: 250),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text(
-                    "Japan\nLand of JAV",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 28.0,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
                 const SizedBox(height: 10.0),
                 Row(
                   children: <Widget>[
-                    const SizedBox(width: 16.0),
-                    Container(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 16.0),
-                        decoration: BoxDecoration(
-                            color: Colors.grey.shade200,
-                            borderRadius: BorderRadius.circular(20.0)),
-                        child: Text(
-                          "8.4/100 reviews",
-                          style: TextStyle(color: Colors.black, fontSize: 12.0),
-                        )),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        widget.name,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
                     Spacer(),
                     IconButton(
                         color: Colors.white,
@@ -68,31 +72,10 @@ class _DetailsPageState extends State<DetailsPage> {
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                Row(children: <Widget>[
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.yellow,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.yellow,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.yellow,
-                                  ),
-                                  Icon(
-                                    Icons.star,
-                                    color: Colors.yellow,
-                                  ),
-                                  Icon(
-                                    Icons.star_border,
-                                    color: Colors.yellow,
-                                  ),
-                                ]),
+                                _buildRatingStars(widget.rating),
                                 SizedBox(height: 5.0),
                                 Text(
-                                  "4.0 / 5.0",
+                                  "${widget.rating}.0 / 5.0",
                                   style: TextStyle(
                                       fontSize: 14.0, color: Colors.grey),
                                 ),
@@ -100,7 +83,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           Column(
                             children: <Widget>[
                               Text(
-                                "200\$ - 400\$",
+                                "\$ ${widget.price}",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -108,7 +91,7 @@ class _DetailsPageState extends State<DetailsPage> {
                               ),
                               SizedBox(height: 5.0),
                               Text(
-                                "/per day",
+                                "/ người",
                                 style: TextStyle(
                                     fontSize: 14.0, color: Colors.grey),
                               )
@@ -126,7 +109,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           textColor: Colors.white,
                           child: Text(
                             "Go Now",
-                            style: TextStyle(fontWeight: FontWeight.normal),
+                            style: TextStyle(
+                                fontWeight: FontWeight.normal, fontSize: 18.0),
                           ),
                           padding: const EdgeInsets.symmetric(
                             vertical: 16.0,
@@ -134,7 +118,8 @@ class _DetailsPageState extends State<DetailsPage> {
                           ),
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => MapPage()));
+                                builder: (context) => MapPage(
+                                    widget.latitude, widget.longtitude)));
                           },
                         ),
                       ),
@@ -142,40 +127,33 @@ class _DetailsPageState extends State<DetailsPage> {
                       Text(
                         "Description".toUpperCase(),
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 14.0),
+                            fontWeight: FontWeight.w600, fontSize: 18.0),
                       ),
                       const SizedBox(height: 10.0),
                       Text(
-                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
+                        widget.description,
                         textAlign: TextAlign.justify,
                         style: TextStyle(
-                            fontWeight: FontWeight.w300, fontSize: 14.0),
-                      ),
-                      const SizedBox(height: 10.0),
-                      Text(
-                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?, Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione architecto autem quasi nisi iusto eius ex dolorum velit! Atque, veniam! Atque incidunt laudantium eveniet sint quod harum facere numquam molestias?",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w300, fontSize: 14.0),
-                      ),
+                            fontWeight: FontWeight.w300, fontSize: 18.0),
+                      )
                     ],
                   ),
                 )
               ],
             ),
           ),
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              centerTitle: true,
-              title: Text(
-                "DETAIL",
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),
-              ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  iconSize: 30.0,
+                  color: Colors.black,
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ],
             ),
           ),
         ],

@@ -75,7 +75,14 @@ class _ListHotelScreenState extends State<ListHotelScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => DetailsPage(),
+                      builder: (_) => DetailsPage(
+                          hotel.name,
+                          hotel.imageUrl,
+                          hotel.description,
+                          hotel.latitude,
+                          hotel.longitude,
+                          hotel.price,
+                          hotel.rating),
                     ),
                   ),
                   child: Stack(

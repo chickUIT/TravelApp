@@ -139,13 +139,20 @@ class _DestinationScreenState extends State<DestinationScreen> {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => DetailsPage(),
+                      builder: (_) => DetailsPage(
+                          activity.name,
+                          activity.imageUrl,
+                          activity.description,
+                          activity.latitude,
+                          activity.longitude,
+                          activity.price,
+                          activity.rating),
                     ),
                   ),
                   child: Stack(
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+                        margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
                         height: 170.0,
                         width: double.infinity,
                         decoration: BoxDecoration(
@@ -153,7 +160,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(100.0, 20.0, 20.0, 20.0),
+                          padding: EdgeInsets.fromLTRB(130.0, 20.0, 20.0, 20.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,

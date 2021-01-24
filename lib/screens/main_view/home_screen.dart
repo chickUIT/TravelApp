@@ -35,13 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     if (jsonString == null) {
-      return Center(
-        child: Text(
-          "PLEASE WAIT",
-          style: GoogleFonts.montserrat(
-            fontSize: 20.0,
-            fontWeight: FontWeight.w300,
-            textStyle: TextStyle(color: Colors.white),
+      return Scaffold(
+        body: Container(
+          child: Center(
+            child: Image.asset(
+              "assets/images/loading.gif",
+              height: 250.0,
+              width: 250.0,
+            ),
           ),
         ),
       );

@@ -5,8 +5,8 @@ import 'package:google_map_polyline/google_map_polyline.dart';
 import 'package:geolocator/geolocator.dart';
 
 class MapPage extends StatefulWidget {
-  // final latitude, longtitude;
-  // MapPage({this.latitude, this.longtitude});
+  final double latitude, longtitude;
+  MapPage(this.latitude, this.longtitude);
   @override
   _MapPageState createState() => _MapPageState();
 }
@@ -122,7 +122,7 @@ class _MapPageState extends State<MapPage> {
           backgroundColor: Colors.blueAccent,
         ),
       ),
-      body:GoogleMap(
+      body: GoogleMap(
         onMapCreated: _onMapCreated,
         polylines: Set<Polyline>.of(_polylines.values),
         myLocationButtonEnabled: false,
@@ -135,5 +135,3 @@ class _MapPageState extends State<MapPage> {
     );
   }
 }
-
-
