@@ -110,71 +110,30 @@ class _MapPageState extends State<MapPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
-          children: <Widget>[
-            GoogleMap(
-              onMapCreated: _onMapCreated,
-              polylines: Set<Polyline>.of(_polylines.values),
-              myLocationButtonEnabled: false,
-              myLocationEnabled: true,
-              initialCameraPosition: CameraPosition(
-                target: _mapInitLocation,
-                zoom: 15,
-              ),
-            ),
-            Align(
-                alignment: Alignment.bottomRight,
-                child: Row(
-                  children: <Widget>[
-                    SizedBox(
-                      width: 330.0,
-                    ),
-                    Column(children: <Widget>[
-                      SizedBox(
-                        height: 800.0,
-                      ),
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        child: FloatingActionButton(
-                          child: Icon(
-                            Icons.my_location,
-                            size: 20.0,
-                            color: Colors.white,
-                          ),
-                          onPressed: _getCurrentLocation,
-                          backgroundColor: Colors.blueAccent,
-                        ),
-                      ),
-                    ]),
-                  ],
-                )),
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: AppBar(
-                iconTheme: IconThemeData(
-                  color: Colors.black, //change your color here
-                ),
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                centerTitle: true,
-                title: Text(
-                  "MAP",
-                  style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                ),
-              ),
-            ),
-          ],
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(right: 50),
+        child: FloatingActionButton(
+          child: Icon(
+            Icons.my_location,
+            size: 20.0,
+            color: Colors.white,
+          ),
+          onPressed: _getCurrentLocation,
+          backgroundColor: Colors.blueAccent,
+        ),
+      ),
+      body:GoogleMap(
+        onMapCreated: _onMapCreated,
+        polylines: Set<Polyline>.of(_polylines.values),
+        myLocationButtonEnabled: false,
+        myLocationEnabled: true,
+        initialCameraPosition: CameraPosition(
+          target: _mapInitLocation,
+          zoom: 15,
         ),
       ),
     );
   }
 }
+
+
