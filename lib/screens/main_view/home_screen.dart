@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -96,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         });
-    return response.body.toString();
+    return Utf8Decoder().convert(response.bodyBytes);
 
     // log("Data loaded");
     // return jsonString;
