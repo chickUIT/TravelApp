@@ -3,7 +3,7 @@
 ## Travel App
 ### Chức năng chính:
 Ứng dụng di động về du lịch với các chức năng chính:
-+ Cung cấp thông tin về các địa điểm du lịch cùng với thông tin các khách sạn xung quanh địa điểm đó.
++ Cung cấp thông tin về các địa điểm du lịch cùng với thông tin các khách sạn xung quanh địa điểm đã chọn.
 + Hướng dẫn chỉ đường cho người sử dụng đến địa điểm du lịch.
 ### Yêu cầu thiết bị:
 ### Công nghệ sử dụng:
