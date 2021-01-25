@@ -30,7 +30,9 @@ không thể nào vừa đi mà vừa tra các trang website về địa điểm
      + Target sdk: 29
    - IOS:
      + IOS: 13.0
-     
+
+## Diagram:
+
 ## Công nghệ sử dụng:
 
 - [Language  :  Dart][Dart]
