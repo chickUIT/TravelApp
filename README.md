@@ -32,7 +32,7 @@ không thể nào vừa đi mà vừa tra các trang website về địa điểm
      + IOS: 13.0
 
 ## Diagram:
-![image](https://user-images.githubusercontent.com/56749834/105780050-3b599780-5fa2-11eb-9580-3137d66f54c5.png)
+![image](https://user-images.githubusercontent.com/56749834/105780197-84115080-5fa2-11eb-8556-264c9ac96eef.png)
 
 ## Công nghệ sử dụng:
 
