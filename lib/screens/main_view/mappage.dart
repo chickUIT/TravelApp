@@ -79,7 +79,7 @@ class _MapPageState extends State<MapPage> {
   }
 
   //Get polyline with Location (latitude and longitude)
-  _getPolylinesWithLocation() async {
+  _getPolylinesWithLocation(double lat, double long) async {
     _setLoadingMenu(true);
     final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.best);
@@ -87,14 +87,14 @@ class _MapPageState extends State<MapPage> {
     List<LatLng> _coordinates =
         await _googleMapPolyline.getCoordinatesWithLocation(
             origin: _currentLocation,
-            destination: _destinationLocation,
+            destination: LatLng(lat, long),
             mode: RouteMode.driving);
     setState(() {
       _polylines.clear();
       LatLng latLngPosition =
           new LatLng(_currentLocation.latitude, _currentLocation.longitude);
       CameraPosition cameraPosition =
-          new CameraPosition(target: latLngPosition, zoom: 17.0);
+          new CameraPosition(target: latLngPosition, zoom: 10.0);
       _controller.animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
     });
     _addPolyline(_coordinates);
@@ -104,7 +104,7 @@ class _MapPageState extends State<MapPage> {
   @override
   void initState() {
     super.initState();
-    _getPolylinesWithLocation();
+    _getPolylinesWithLocation(this.widget.latitude, this.widget.longtitude);
   }
 
   @override
@@ -129,7 +129,7 @@ class _MapPageState extends State<MapPage> {
         myLocationEnabled: true,
         initialCameraPosition: CameraPosition(
           target: LatLng(widget.latitude, widget.longtitude),
-          zoom: 15,
+          zoom: 10,
         ),
       ),
     );
