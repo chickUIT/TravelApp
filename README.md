@@ -10,7 +10,7 @@
 cũng đang một ngày gia tăng do nhu cầu sử dụng của người dùng và tính tiện dụng của nó.
 Có thể thấy rằng, du lịch là một đề tài chưa bao giờ hết nóng bởi tính thiết yếu có nó đối với
 cuộc sống của mọi người. Các trang web về địa điểm du lịch thì có nhiều, nhưng người dùng
-không thể nào vừa đi mà vừa tra các trang website về địa điểm du lịch do tính thiếu tiện dụng.
+không thể nào vừa đi mà vừa tra các trang website về địa điểm du lịch do tính thiếu tiện dụng.<br>
  Hiểu được vấn đề đó, nhóm đã quyết định tạo ra ứng dụng di động Travel App để đáp
 ứng được nhu cầu tra cứu về thông tin của các địa điểm du lịch.
 
