@@ -1,6 +1,11 @@
 # Đồ Án Nhập Môn Di Động
 
 ## Travel App
+
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105738698-e39f3a00-5f69-11eb-9f16-e35b1d30dfe6.png" height = "480" width="270">
+   </p>
+
 Giúp người dùng sử dụng smartphone có thể tra cứu thông tin về các địa điểm du lịch
 mà người dùng muốn đến. Ngoài ra ứng dụng còn trợ định vị vị trí người dùng và hướng dẫn
 đường đi đến địa điểm du lịch mà người dùng muốn đến.
