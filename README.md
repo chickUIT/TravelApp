@@ -39,7 +39,7 @@ hiện nay.
 
 1. [Giấy phép](#giấy-phép)
 ## Chức năng:
-### Đăng nhập / Đăng kí
+#### 1. Đăng nhập / Đăng kí
   * Đăng nhập
   * Đăng kí
   
@@ -49,49 +49,49 @@ hiện nay.
    <img src="https://user-images.githubusercontent.com/56713327/105698526-95257780-5f38-11eb-9627-25d6e11f21bd.PNG" height = "480" width="270">
    </p>
 
-### Hiển thị thông tin người dùng
+#### 2. Hiển thị thông tin người dùng
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698586-a4a4c080-5f38-11eb-8bf0-f33aa9c4bfa1.PNG" height = "480" width="270">
    </p>
    
-### Hiển thị trang chủ
+#### 3. Hiển thị trang chủ
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698529-9656a480-5f38-11eb-9c77-f162f20bbe44.PNG" height = "480" width="270">
    </p>
    
-### Hiển thị danh sách địa điểm
+#### 4. Hiển thị danh sách địa điểm
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698535-98206800-5f38-11eb-8b7f-32b717eb56b0.PNG" height = "480" width="270">
    </p>
    
-### Hiển thị chi tiết địa điểm
+#### 5. Hiển thị chi tiết địa điểm
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698540-99ea2b80-5f38-11eb-936d-772d64e9de83.PNG" height = "480" width="270">
    </p>
    
-### Hiển thị chi tiết hoạt động
+#### 6. Hiển thị chi tiết hoạt động
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698558-9e164900-5f38-11eb-91ab-e14df751c517.PNG" height = "480" width="270">
    </p>
    
-### Hiển thị danh sách khách sạn
+#### 7. Hiển thị danh sách khách sạn
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698538-99519500-5f38-11eb-9278-f1c365e28182.PNG" height = "480" width="270">
    </p>
    
-### Hiển thị chi tiết khách sạn
+#### 8. Hiển thị chi tiết khách sạn
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698573-a2426680-5f38-11eb-80a5-5801aa37d6b2.PNG" height = "480" width="270">
    </p>
    
-### Map chỉ đường
+#### 9. Map chỉ đường
 
    <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698567-a1113980-5f38-11eb-9d3b-f56a3f295cac.PNG" height = "480" width="270">
