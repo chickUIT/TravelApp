@@ -43,7 +43,10 @@ hiện nay.
   * Đăng nhập
   * Đăng kí
   
-  ![image](https://user-images.githubusercontent.com/56713327/105698521-935bb400-5f38-11eb-983f-bc9381d72f1c.PNG)
+  <p align="center">
+   <img src="screenshots/login.png" height = "480" width="270"> <img src="https://user-images.githubusercontent.com/56713327/105698521-935bb400-5f38-11eb-983f-bc9381d72f1c.PNG" height = "480" width="270">
+   </p>
+
   ![image](https://user-images.githubusercontent.com/56713327/105698523-948ce100-5f38-11eb-8bf5-2cd0e4a765f7.PNG)
   ![image](https://user-images.githubusercontent.com/56713327/105698526-95257780-5f38-11eb-9627-25d6e11f21bd.PNG)
 #### Hiển thị thông tin người dùng
