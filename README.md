@@ -1,12 +1,57 @@
 # Đồ Án Nhập Môn Di Động
 
 ## Travel App
-### 1.Chức năng chính:
-Ứng dụng di động về du lịch với các chức năng chính:
-+ Cung cấp thông tin về các địa điểm du lịch cùng với thông tin các khách sạn xung quanh địa điểm đã chọn.
-+ Hướng dẫn chỉ đường cho người sử dụng đến địa điểm du lịch.
-### 2.Yêu cầu thiết bị:
-### 3.Công nghệ sử dụng:
+Giúp người dùng sử dụng smartphone có thể tra cứu thông tin về các địa điểm du lịch
+mà người dùng muốn đến. Ngoài ra ứng dụng còn trợ định vị vị trí người dùng và hướng dẫn
+đường đi đến địa điểm du lịch mà người dùng muốn đến.
+Quảng bá các địa điểm du lịch nổi tiếng của Việt Nam, thu hút khách du lịch đến với
+các địa điểm mới.
+Mục tiêu trong tương lại: app có thể cung cấp thông tin giá cả hợp lý của các mặt hàng
+cần thiết cho người sử dụng hạn chế tình trạng nâng giá hàng hóa ở một số địa điểm du lịch
+hiện nay.
+
+## Nội dung:
+1. [Chức năng](#chức-năng)
+
+   1. [Đăng nhập / Đăng kí](#đăng-nhập-/-đăng-kí)
+   
+   1. [Hiển thị thông tin người dùng](#)
+
+   1. [Hiển thị trang chủ](#trang-chu)
+   
+   1. [Hiển thị danh sách địa điểm](#)
+
+   1. [Hiển thị chi tiết địa điểm](#)
+   
+   1. [Hiển thị chi tiết hoạt động](#)
+   
+   1. [Hiển thị danh sách khách sạn](#)
+   
+   1. [Hiển thị chi tiết khách sạn](#)
+
+   1. [Map chỉ đường](#)
+   
+1. [Yêu cầu thiết bị](#yêu-cầu-thiết-bị)
+
+1. [Thư viện và công nghệ](#thư-viện-và-công-nghệ)
+
+1. [Tác giả](#tác-giả)
+
+1. [Giấy phép](#giấy-phép)
+## Chức năng:
+### Đăng nhập / Đăng kí
+  * Đăng nhập
+  * Đăng kí
+### Hiển thị thông tin người dùng
+### Hiển thị trang chủ
+### Hiển thị danh sách địa điểm
+### Hiển thị chi tiết địa điểm
+### Hiển thị chi tiết hoạt động
+### Hiển thị danh sách khách sạn
+### Hiển thị chi tiết khách sạn
+### Map chỉ đường
+## Yêu cầu thiết bị:
+## Công nghệ sử dụng:
 #### Flutter:
 ![image](https://user-images.githubusercontent.com/56749834/105620788-07ac2f80-5e33-11eb-95fb-7665b34ec548.png)
 
