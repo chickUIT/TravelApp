@@ -43,28 +43,44 @@ hiện nay.
   * Đăng nhập
   * Đăng kí
   
-  <p align="center">
+   <p align="center">
    <img src="https://user-images.githubusercontent.com/56713327/105698521-935bb400-5f38-11eb-983f-bc9381d72f1c.PNG" height = "480" width="270">
    <img src="https://user-images.githubusercontent.com/56713327/105698523-948ce100-5f38-11eb-8bf5-2cd0e4a765f7.PNG" height = "480" width="270">
    <img src="https://user-images.githubusercontent.com/56713327/105698526-95257780-5f38-11eb-9627-25d6e11f21bd.PNG" height = "480" width="270">
    </p>
 
 #### Hiển thị thông tin người dùng
-  ![image](https://user-images.githubusercontent.com/56713327/105698586-a4a4c080-5f38-11eb-8bf0-f33aa9c4bfa1.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698586-a4a4c080-5f38-11eb-8bf0-f33aa9c4bfa1.PNG" height = "480" width="270">
+   </p>
 #### Hiển thị trang chủ
-  ![image](https://user-images.githubusercontent.com/56713327/105698529-9656a480-5f38-11eb-9c77-f162f20bbe44.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698529-9656a480-5f38-11eb-9c77-f162f20bbe44.PNG" height = "480" width="270">
+   </p>
 #### Hiển thị danh sách địa điểm
-  ![image](https://user-images.githubusercontent.com/56713327/105698535-98206800-5f38-11eb-8b7f-32b717eb56b0.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698535-98206800-5f38-11eb-8b7f-32b717eb56b0.PNG" height = "480" width="270">
+   </p>
 #### Hiển thị chi tiết địa điểm
-  ![image](https://user-images.githubusercontent.com/56713327/105698540-99ea2b80-5f38-11eb-936d-772d64e9de83.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698540-99ea2b80-5f38-11eb-936d-772d64e9de83.PNG" height = "480" width="270">
+   </p>
 #### Hiển thị chi tiết hoạt động
-  ![image](https://user-images.githubusercontent.com/56713327/105698558-9e164900-5f38-11eb-91ab-e14df751c517.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698558-9e164900-5f38-11eb-91ab-e14df751c517.PNG" height = "480" width="270">
+   </p>
 #### Hiển thị danh sách khách sạn
-  ![image](https://user-images.githubusercontent.com/56713327/105698538-99519500-5f38-11eb-9278-f1c365e28182.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698538-99519500-5f38-11eb-9278-f1c365e28182.PNG" height = "480" width="270">
+   </p>
 #### Hiển thị chi tiết khách sạn
-  ![image](https://user-images.githubusercontent.com/56713327/105698573-a2426680-5f38-11eb-80a5-5801aa37d6b2.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698573-a2426680-5f38-11eb-80a5-5801aa37d6b2.PNG" height = "480" width="270">
+   </p>
 #### Map chỉ đường
-  ![image](https://user-images.githubusercontent.com/56713327/105698567-a1113980-5f38-11eb-9d3b-f56a3f295cac.PNG)
+   <p align="center">
+   <img src="https://user-images.githubusercontent.com/56713327/105698567-a1113980-5f38-11eb-9d3b-f56a3f295cac.PNG" height = "480" width="270">
+   </p>
 ### Yêu cầu thiết bị:
 
    - Android:
