@@ -6,19 +6,19 @@
    <img src="https://user-images.githubusercontent.com/56713327/105738698-e39f3a00-5f69-11eb-9f16-e35b1d30dfe6.png" height = "860" width="613">
    </p>
 
-Giúp người dùng sử dụng smartphone có thể tra cứu thông tin về các địa điểm du lịch
-mà người dùng muốn đến. Ngoài ra ứng dụng còn trợ định vị vị trí người dùng và hướng dẫn
-đường đi đến địa điểm du lịch mà người dùng muốn đến.
-Quảng bá các địa điểm du lịch nổi tiếng của Việt Nam, thu hút khách du lịch đến với
-các địa điểm mới.
-Mục tiêu trong tương lại: app có thể cung cấp thông tin giá cả hợp lý của các mặt hàng
-cần thiết cho người sử dụng hạn chế tình trạng nâng giá hàng hóa ở một số địa điểm du lịch
-hiện nay.
+ Bên cạnh sự phát triển nhanh chóng của các trang web, việc tạo ra các ứng dụng di động
+cũng đang một ngày gia tăng do nhu cầu sử dụng của người dùng và tính tiện dụng của nó.
+Có thể thấy rằng, du lịch là một đề tài chưa bao giờ hết nóng bởi tính thiết yếu có nó đối với
+cuộc sống của mọi người. Các trang web về địa điểm du lịch thì có nhiều, nhưng người dùng
+không thể nào vừa đi mà vừa tra các trang website về địa điểm du lịch do tính thiếu tiện dụng.
+ Hiểu được vấn đề đó, nhóm đã quyết định tạo ra ứng dụng di động Travel App để đáp
+ứng được nhu cầu tra cứu về thông tin của các địa điểm du lịch.
+
 
 ## Chức năng:
 
    <p align="center">
-   <img src="https://i.ibb.co/wdgwDkH/Feature.png" width="750">
+   <img src="https://i.ibb.co/nj0HH5g/Feature.png" width="750">
    </p>
 
 ## Yêu cầu thiết bị:
@@ -33,13 +33,13 @@ hiện nay.
      
 ## Công nghệ sử dụng:
 
-- Language  :  Dart
+- [Language  :  Dart][Dart]
 
-- FrameWork :  Flutter
+- [FrameWork :  Flutter][Flutter]
 
-- Database  :  Firebase    
+- [Database  :  Firebase][Firebase]    
 
-* [API][API]
+* [API : MockAPI][API]
 
 * [Geolocation API][Geolocation]  
 
@@ -73,6 +73,9 @@ Nguyễn Lê Thành    - fb: https://www.facebook.com/thanh.lee.bmt
     See the License for the specific language governing permissions and
     limitations under the License.
 
+[Dart]: https://dart.dev/
+[Flutter]: https://flutter.dev/
+[Firebase]: https://firebase.google.com/
 [API]: https://www.mockapi.io
 [Geolocation]: https://console.cloud.google.com/apis/library/geolocation.googleapis.com?q=Geo&id=b87d2884-ba68-47f9-aaf0-b29ae1919bb7&project=driven-plexus-297908
 [MapAndroid]: https://console.cloud.google.com/apis/library/maps-android-backend.googleapis.com?id=01d8f5af-dc9a-4b12-af6f-37029d8e3e71&project=driven-plexus-297908
